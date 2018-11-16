@@ -1,68 +1,4 @@
-/*
-html{
-  height: 100%;
-  overflow: hidden;
-}
 
-body{
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      perspective: 1px;
-      transform-style: preserve-3d;
-      height: 100%;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      font-family: "Luna";
-}
-header{
-      box-sizing: border-box;
-      padding: 30vw 0 5vw;
-      width: 100vw;
-      min-height: 100vh;
-      position: relative;
-      transform-style: inherit;
-}
-
-header h1{
-      margin-top: -100px;
-}
-header *{
-      text-align: center;
-      font-size: 3rem;      
-}
-.box{
-      box-shadow: black 5px 5px 10px;
-      height: auto;
-      width: auto;
-      background: rgba(0,0,0,0.5);
-      margin: auto;
-      padding: 20px;
-}
-header, header:before{
-      background: 50% 50% / cover;
-}
-
-header::before{
-      bottom: 0;
-      content: "";
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      display: block;
-      background-image: url(../images/photo.jpg);
-      background-size: cover;
-      transform-origin: center center 0;
-      transform: translateZ(-1px) scale(2);
-      z-index: -1;
-      min-height: 500vh;
-}
-.dummy{
-      height: 500px;
-      background: rgba(0,0,0,0.5);
-}
-*/
 /*------- Scrollbar Customize --------*/
 /* width */
 ::-webkit-scrollbar {
@@ -160,7 +96,11 @@ section {
       padding: 50px 80px;
       text-align: center;
 }
-
+@media only screen and (max-width: 576px){
+      section {
+            padding: 30px 40px;
+      }
+}
 .section-light {
       background-color: #f4f4f4;
       color: #666;
@@ -184,7 +124,11 @@ section {
       font-weight: bold;
       padding-top: 3rem;
 }
-
+@media only screen and (max-width: 576px){
+      .ptext{
+            font-size: 15px;
+      }
+}
 .ptext .border {
       background-color: #111 !important;
       color: #fff;
@@ -198,11 +142,15 @@ section {
 
 .border--small {
       font-size: 1rem;
-      height: 10px !important;
+      height: 10px;
       padding: 10px;
       letter-spacing: normal;
 }
-
+@media only screen and (max-width: 576px){
+      .border--small{
+            height: 60px;
+      }
+}
 .ptext .border.trans {
       background-color: transparent;
 }
@@ -234,6 +182,7 @@ section {
       background-color: #1b95e0;
 }
 .btn__sn--fb {
+      color: white !important;
       background-color: #4267b2;
 }
 
@@ -272,7 +221,7 @@ section {
 }
 
 #logo {
-      background-image: url("../images/employer/lebonjour/logo.png");
+      background-image: url("../images/employer/001/logo.png");
       background-size: cover;
       background-position: center center;
       width: 80px;
@@ -280,11 +229,21 @@ section {
 }
 
 .see-more{
-      margin-left: 85%;
+      /* margin-left: 85%; */
 }
 #createCV ul{
       z-index: 1000 !important;
 }
+
+a.login, a.signup{
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.8)
+}
+a.login:hover, a.signup:hover{
+      background: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.8)
+}
+
 /*------- Job filter -------*/
 
 .jumbotron {
@@ -293,6 +252,26 @@ section {
       padding: 0px auto !important;
 }
 
+@media only screen and (max-width: 576px){
+      .jumbotron{
+            width: 90%;
+      }
+      button.multiselect{
+            width: 121px !important;
+      }
+      #jobFilter label{
+            width: 120px;
+      }
+      #jobFilter .form-row{
+            width: 300px;
+      }
+      label.custom-control-label{
+            width: 100% !important;
+      }
+      /* #jobFilter .custom-control{
+            width: 100%;
+      } */
+}
 .multiselect-container {
       max-height: 200px;
       overflow-y: scroll;
@@ -330,7 +309,8 @@ section {
 /* -------- Job card --------- */
 
 .jobcard img.logo{
-      width: 100px !important;
+      width: 100% !important;
+      height: 70% !important;
 }
 .jobcard {
       font-size: 0.9rem;
@@ -353,9 +333,30 @@ section {
       text-overflow: ellipsis;
 }
 
+.job__follow__check {
+      display: none;
+}
+.job__follow__button {
+      background: white !important;
+      color: #007bff;
+      border: 2px #007bff solid !important;
+}
+
+#job001Check:checked~button.job001,
+#job002Check:checked~button.job002,
+#job003Check:checked~button.job003,
+#job004Check:checked~button.job004,
+#job005Check:checked~button.job005,
+#job006Check:checked~button.job006,
+#job007Check:checked~button.job007 {
+
+      background: #007bff !important;
+      color: white;
+}
 /*------ VIP Employer --------*/
 .employer__vip{
-      width: 95%;
+      width: 100%;
+      font-size: 0.9rem;
 }
 .employer__vip::before {
       content: "NTD VIP";
@@ -364,8 +365,8 @@ section {
       top: 5px;
       left: 10px;
       color: white;
-      font-weight: bold;
-      font-size: 1rem;
+      font-weight: 500;
+      font-size: 0.8rem;
       padding: 7px;
       border-radius: 0 0 5px 5px;
 }
@@ -373,9 +374,7 @@ section {
       background: rgba(122, 184, 14,0.3);
       border-style: dotted !important;
 }
-.employer__vip {
-      font-size: 0.9rem;
-}
+
 .employer__vip h5{
       font-size: 1.1rem;
       font-weight: 700;
@@ -384,6 +383,21 @@ section {
       font-size: 0.9rem;
 }
 
+@media only screen and (max-width: 576px){
+      .employer__vip, .employer__vip h5, .employer__vip h6{
+            font-size: 0.8rem;
+      }
+      #vipEmployers .col-md-3{
+            padding: 5px;
+      }
+}
+
+/*------ Hot jobs -------*/
+@media only screen and (max-width: 576px){
+      #myTabContent{
+            width: 80vw;
+      }
+}
 
 /*------ Events -------*/
 
@@ -392,10 +406,34 @@ section {
       padding: 0 !important;
       position: relative;
 }
+@media only screen and (max-width: 576px){
+      .tab-content{
+      min-width: 290px;
+      }
+      .event__row{
+            width: 100%;
+            margin-right: 0 !important;
+      }
+}
 .event__choose{
       position: absolute;
       width: 32%;
       z-index: 99;
+}
+
+.event__preview{
+      background-position: top left;
+      background-size: 280px 140px;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      height: 160px;
+      width: 100px !important;
+}
+@media only screen and (max-width: 576px){
+      .event__choose{
+      position: relative;
+      width: 100%;
+      }
 }
 .event__choose img{
       width: 60%;
@@ -409,15 +447,23 @@ section {
 a.event__choose__item {
       display: flex !important;
       flex-direction: column;
-      height: 124px;
+      height: 100%;
 
 }
-
+.event__card{
+      width: 100%;
+}
 .event__card img {
       height: 90% !important;
 }
 .event__card h5, .event__card p{
       color: black;
+}
+.event__card h5{
+      font-size: 1rem;
+}
+.event__card p{
+      font-size: 0.8rem;
 }
 
 .event__card__date {
@@ -449,19 +495,25 @@ a.event__choose__item {
       border: 2px #f57f04 solid !important;
 }
 
-#event1Check:checked~button.event1,
-#event2Check:checked~button.event2,
-#event3Check:checked~button.event3,
-#event4Check:checked~button.event4,
-#event5Check:checked~button.event5,
-#event6Check:checked~button.event6,
-#event7Check:checked~button.event7 {
+#event001Check:checked~button.event001,
+#event002Check:checked~button.event002,
+#event003Check:checked~button.event003,
+#event004Check:checked~button.event004,
+#event005Check:checked~button.event005,
+#event006Check:checked~button.event006,
+#event007Check:checked~button.event007 {
 
       background: #f57f04 !important;
       color: white;
-
 }
 
+@media only screen and (max-width: 576px){
+      .event__card button.btn__sn--sm{
+            min-width: 120px !important;
+            height: 30px;
+            margin-bottom: 5px;
+      }
+}
 
 /* --------- User Reviews --------- */
 .reviews .card {
@@ -509,7 +561,7 @@ footer li:last-child {
 
 /* ------------- Employer Profile ---------- */
 
-/*------ Banner -------*/
+/*---Banner---*/
 /*
 .banner{
       height: 300px !important; 
@@ -540,17 +592,21 @@ footer li:last-child {
       background-image: url("../images/employer/lebonjour/banner3.jpg");
 }
 
-/*------ Detail info scroll -------*/
+/*---- Detail info scroll ----*/
 .container__scroll {
-      position: relative !important;
-      display: block;
+      /* position: relative !important;
+      display: block; */
       height: 700px;
       overflow-y: scroll;
 }
-
-.container__scroll__info {
+.sidebar__box {
       height: 500px;
+      overflow-y: scroll;
+}
+.container__scroll__info {
+      /* height: 500px; */
       padding-left: 15px;
+      font-size: 0.9rem;
 }
 
 /* ul.nav-pills {
@@ -581,17 +637,127 @@ footer li:last-child {
 #myScrollSpy .active {
       color: #007bff !important;
 }
-.sidebar__box {
-      height: 500px;
-      overflow-y: scroll;
+
+@media only screen and (max-width: 576px){
+      .sidebar__box {
+            height: auto;
+      }
+      .container__scroll {
+            height: auto;
+      }
 }
 
 .rating-header {
       margin-top: -10px;
       margin-bottom: 10px;
   }
+  @media only screen and (max-width: 576px){
+      .employer-review h2{
+            font-size: 2rem;
+      }
+}
 
+/* --- Activities slide --- */
+#i1, #i2, #i3, #i4, #i5{ 
+      display: none;
+}
+.rows{
+      margin: 0 auto;
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding-bottom: 38%;
+      user-select: none;
+      background-color: #1c1c1c;
+}
 
+.rows .slide_img{
+      position: absolute;
+      width: 100%;;
+      height: 100%;
+}
+.rows .slide_img img{
+      width: inherit;
+      height: inherit;
+}
+
+#nav_slide{
+	width: 100%;
+	bottom: 12%;
+	height: 100px;
+	/* margin-top: 10px; */
+	padding-top: 10px;
+	/* position: absolute; */
+    padding: 1% 0;
+	text-align: center;
+	z-index: 99;
+	cursor: default;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+#nav_slide .dots{
+	/* top: -5px; */
+	width: 20%;
+    height: 100%;
+	margin: 0 4px;
+	position: relative;
+	display: inline-block;
+	background-size: cover;
+    background-position: center center;
+	transition: .4s;
+    opacity: 0.4;
+}
+#nav_slide label{
+    width: 100px;
+    height: 100px;
+}
+#nav_slide .dots:hover {
+	cursor: pointer;
+    opacity: 0.8;
+	transition: .25s
+}
+
+.slide_img{z-index: -1;}
+
+	#i1:checked ~ #act1,
+	#i2:checked ~ #act2,
+	#i3:checked ~ #act3,
+	#i4:checked ~ #act4,
+	#i5:checked ~ #act5 
+	{z-index: 9; animation: scroll 1s ease-in-out;}
+
+	#i1:checked  ~  #nav_slide #dot1,
+	#i2:checked  ~  #nav_slide #dot2,
+	#i3:checked  ~  #nav_slide #dot3,
+	#i4:checked  ~  #nav_slide #dot4,
+	#i5:checked  ~  #nav_slide #dot5
+	{ opacity: 1;
+        }
+
+@keyframes scroll{
+	0%{	opacity:.4;}
+	100%{opacity:1;}
+}		
+
+@media screen and (max-width: 685px){
+	.rows{
+		border: none;
+		width: 100%;
+		height: 0;
+		padding-bottom: 55%; 
+	}	
+	#nav_slide .dots{
+		width: 12px;
+		height: 12px;
+	}
+	}	
+
+@media screen  and(min-width: 970px){
+	.me{ display: none;}
+}
 
 
 /*---------- Job description ----------*/
@@ -676,3 +842,24 @@ footer li:last-child {
       height: 6vw;
 }
 
+#applicant__scroll{
+      height: auto;
+}
+
+#section5 .jobcard{
+      margin: auto auto 20px 50px !important;
+}
+#section6 .event__card__date{
+      width: 30px !important;
+}
+#section6 .event__preview{
+      background-size: 240px 140px;
+}
+.event__card__month {
+      color: #f57f04;
+      font-weight: bold;
+      font-size: 2.1rem;
+}
+
+
+    
